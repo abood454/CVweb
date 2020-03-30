@@ -1,0 +1,65 @@
+﻿.card-img-top {
+    padding-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: auto;
+    width: 50%;
+}
+
+#gallery {
+    margin-top: 100px;
+}
+
+body {
+    background-image: url('/img/header.jpeg');
+}
+
+.card {
+    background-color: rgba(255,255,255,0.5);
+}
+
+#header {
+    /* background: url("imgs/header.jpeg") center center / cover no-repeat; */
+}
+
+.card-title {
+    text-align: center;
+}
+
+#headl {
+    margin-top: 100px;
+}
+
+h1 {
+    color: white;
+}
+
+#mainNavbar {
+    font-size: 1rem;
+    font-weight: 100;
+    background: black;
+}
+
+.navbar-nav {
+    margin-right: 70px;
+}
+
+.navbar-brand {
+    margin-right: 150px;
+}
+
+
+#mainNavbar .nav-link {
+    color: white;
+    margin-left: 20px;
+}
+
+    #mainNavbar .nav-link:hover {
+        color: orange;
+    }
+
+#mainNavbar .navbar-brand {
+    color: #040B52;
+    font-size: 1.5rem;
+}

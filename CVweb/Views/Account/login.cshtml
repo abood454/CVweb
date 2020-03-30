@@ -1,0 +1,33 @@
+﻿@model CVweb.ViewModel.LoginView
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "login";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/loginSheet.css">
+
+<form method="post" >
+    
+    <div class="login_box">
+        <h1>دخول </h1>
+        <div class="textbox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input  asp-for="email" placeholder="email">
+        </div>
+        <div class="textbox">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input  asp-for="password" placeholder="password">
+        </div>
+        <div>
+            <label><input type="checkbox" asp-for="rem" />remeber me</label>
+        </div>
+        <div asp-validation-summary="All">
+
+        </div>
+        <input type="submit" name="" class="btno" value=" تسجيل الدخول">
+
+
+    </div>
+</form>

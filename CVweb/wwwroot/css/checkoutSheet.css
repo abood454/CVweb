@@ -1,0 +1,23 @@
+﻿body {
+    color: white;
+    background-image: url('/img/header.jpeg');
+}
+
+.container {
+    margin-top: 150px;
+    margin-left: 1000px;
+}
+
+
+label {
+    padding-left: 250px;
+    color: white;
+}
+
+.ff {
+    padding-left: 350px;
+}
+
+button {
+    margin-left: 200px;
+}

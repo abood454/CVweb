@@ -1,0 +1,85 @@
+﻿@model CVweb.ViewModel.val
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "catotogory";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/comSheet.css">
+
+<section id="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="~/img/com.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">خريجين بدون خبرة</h5>
+
+                        <form asp-controller="Check" asp-action="checkout" asp-route-id="200" method="post">
+                            <label asp-for="v">150</label>
+                            <center>
+                                <button class="btn btn-secondary" value="150">شراء</button>
+                        </form></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="~/img/com.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">خبرات مبتدئة من 1-5 سنوات</h5>
+
+                        <form asp-controller="Check" asp-action="checkout" asp-route-id="250" method="post">
+                            <label asp-for="v">150</label>
+                            <center>
+                                <button class="btn btn-secondary" value="150">شراء</button>
+                        </form></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="~/img/com.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">خبرات متوسطة من 6-10 سنوات</h5>
+
+                        <form asp-controller="Check" asp-action="checkout" asp-route-id="300" method="post">
+                            <label asp-for="v">150</label>
+                            <center>
+                                <button class="btn btn-secondary" value="150">شراء</button>
+                        </form></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="~/img/com.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">خبرات متقدمة من 11-15 سنة</h5>
+
+                        <form asp-controller="Check" asp-action="checkout" asp-route-id="350" method="post">
+                            <label asp-for="v">150</label>
+                            <center>
+                                <button class="btn btn-secondary" value="150">شراء</button>
+                        </form></center>
+                    </div>
+                </div>
+            </div> <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="~/img/com.png" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">الكفاءات (خبرات فوق 15 سنة)</h5>
+                        <form asp-controller="Check" asp-action="checkout" asp-route-id="400" method="post">
+                        <label asp-for="v" >150</label>
+                            <center>       
+                                <button class="btn btn-secondary" value="150"  >شراء</button>
+                        </form></center>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

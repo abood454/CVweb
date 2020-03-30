@@ -1,0 +1,64 @@
+﻿@model CVweb.ViewModel.Reguser
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "sign up";
+}
+<!doctype html>
+
+
+<link rel="stylesheet" type="text/css" href="~/css/SignupSheet.css">
+
+<div id="ll">
+    <div id="login-box">
+        <div class="left">
+            <h1>انشاء حساب </h1>
+            <form asp-controller="Account" asp-action="Register" method="post">
+                <div>
+                    <input type="text" asp-for="name" placeholder="اسم المستخدم" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+                <div>
+                    <input asp-for="email" placeholder="البريد الالكتروني" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+
+                </div>
+                <div>
+                    <input asp-for="password" type="password" placeholder="كلمة السر " />
+                    <span asp-validation-for="password" class="text-danger"></span>
+
+                </div>
+                <div>
+                    <input asp-for="copassword" type="password" placeholder="إعادة كلمة السر " />
+                    <span asp-validation-for="copassword" class="text-danger"></span>
+
+                </div>
+                <div>
+                    <input asp-for="phone" placeholder="رقم الهاتف " />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+
+                </div>
+                <div asp-validation-summary="All">
+
+                </div>
+                <input type="submit" name="signup_submit" value="إنضم إلينا" />
+            </form>
+        </div>
+
+        <div class="right">
+            <button class="social-signin facebook">Log in with facebook</button>
+            <button class="social-signin twitter">Log in with Twitter</button>
+            <span class="loginwith">Sign in with<br />social network</span>
+
+            <form method="post" asp-action="EXlogin" asp-route-returnUrl="@Model.ReturnUrl">
+                @foreach (var pro in Model.ExternalLogin)
+                {
+
+                    <button type="submit" class="social-signin google" name="pro" value="@pro.Name" >Log in with Google+</button>
+                }
+            </form>
+        </div>
+        <div class="or">أو</div>
+    </div>
+</div>

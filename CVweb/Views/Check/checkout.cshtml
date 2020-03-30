@@ -1,0 +1,83 @@
+﻿@model CVweb.ViewModel.cc
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "checkout";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/checkoutSheet.css">
+
+
+<div class="container">
+    <form enctype="multipart/form-data" method="post" asp-controller="Check" asp-action="pay">
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <h3> كتابة سيرة ذاتية لخبرات متوسطة 6-10 سنوات</h3>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <div class="form-group row">
+                    <label asp-for="cv" class="col-sm-2 col-form-label">CV</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input asp-for="cv" class="form-control custom-file-input" onchange="fun()" id="dd">
+                            <label class="custom-file-label">Choose File...</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <div class="form-group row">
+                    <label asp-for="photo" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input asp-for="photo" class="form-control custom-file-input">
+                            <label class="custom-file-label">Choose File...</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label> ملاحظات<textarea asp-for="notes" maxlength="1000"></textarea>  </label>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label> كتابة سيرة ذاتية لخبرات متوسطة <input type="checkbox" name="cc" value="300" asp-for="mid" id="myCheck" class="che" onclick="fun2()">  </label><span class="price">300 ريال    </span>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label>كتابة رسالة تعريفية  <input type="checkbox" asp-for="know" value="150" class="che" onclick="fun2()">  </label><span class="price">150  ريال  </span>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label>إضافة نسخة باللغة العربية  <input type="checkbox" value="250" asp-for="arabic"  class="che" onclick="fun2()">  </label><span class="price">250  ريال  </span>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label> محتوى بروفايل inked in احترافي   <input type="checkbox" asp-for="linkedin" value="250"  class="che" onclick="fun2()">  </label><span class="price">250  ريال </span>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label> خدمة التسليم السريع خلال 3 أبام   <input type="checkbox" asp-for="fast" value="150"  class="che" onclick="fun2()">  </label><span class="price">150 ريال   </span>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <label hidden id="hid">@ViewBag.sal</label>
+                <span class="ff"> المجموع </span> <span class="price" id="kk">@ViewBag.sal</span><span> ريال </span>
+
+            </div>
+
+
+
+
+
+        </div>
+                <button type="submit" class="btn btn-success">شراء</button>
+    </form>
+
+</div>
+<script type="text/javascript" src="~/js/JavaScript1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.custom-file-input').on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next('.custom-file-label').html(fileName);
+        });
+    });
+</script>
