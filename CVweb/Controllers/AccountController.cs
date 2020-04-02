@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CVweb.Models;
 using CVweb.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,15 +12,31 @@ namespace CVweb.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly CVaction _cvaction;
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
-        public AccountController(UserManager<IdentityUser> userManager
+        public AccountController(CVaction cVaction, UserManager<IdentityUser> userManager
                                                              ,SignInManager<IdentityUser> signInManager)
         {
+
+            _cvaction = cVaction;
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+        public IActionResult userhome()
+        {
+            if (!signInManager.IsSignedIn(User))
+            {
+                return RedirectToAction("login", "Account");
+            }
+            var a = _cvaction.getyours(User.Identity.Name);
+
+            return View(a);
+        }
+
+
+
         public IActionResult er()
         {
             return View();
@@ -34,7 +51,7 @@ namespace CVweb.Controllers
         {
             if (signInManager.IsSignedIn(User))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Account", "login");
             }
             Reguser model = new Reguser
             {

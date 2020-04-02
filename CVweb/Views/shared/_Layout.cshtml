@@ -39,9 +39,17 @@
                 </li>
                 @if (signInManager.IsSignedIn(User))
                 {
-                    <li class="nav-item">
-                        <form asp-controller="Account" asp-action="logout" method="post"><button type="submit">نسجيل الخروج</button> </form>
-                    </li>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @User.Identity.Name
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" asp-action="userhome" asp-controller="Account">Account</a>                           
+                            <a class="dropdown-item" asp-controller="Account" asp-action="logout">Log out</a>
+                        </div>
+                    </div>
+
+                  
                 }
                 else
                 {
