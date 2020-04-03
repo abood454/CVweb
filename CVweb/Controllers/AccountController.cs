@@ -7,6 +7,7 @@ using CVweb.Models;
 using CVweb.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
 
 namespace CVweb.Controllers
 {
@@ -24,11 +25,29 @@ namespace CVweb.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+        public async Task<IActionResult> index(int page = 1)
+        {
+            if (!signInManager.IsSignedIn(User))
+            {
+                return RedirectToAction("login", "Account");
+            }
+            if (User.Identity.Name != "admin@admin.com")
+            {
+                return RedirectToAction("login", "Account");
+            }
+            var s = _cvaction.getadmin();
+            var model = await PagingList.CreateAsync( s, 3, page);
+            return View(model);
+        }
         public IActionResult userhome()
         {
             if (!signInManager.IsSignedIn(User))
             {
                 return RedirectToAction("login", "Account");
+            }
+            if (User.Identity.Name == "admin@admin.com")
+            {
+                return RedirectToAction("index", "Account");
             }
             var a = _cvaction.getyours(User.Identity.Name);
 

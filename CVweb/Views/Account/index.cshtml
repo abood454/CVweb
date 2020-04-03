@@ -1,0 +1,108 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model ReflectionIT.Mvc.Paging.PagingList<CVweb.Models.CVz>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "userpage";
+}
+<br />
+<br />
+<br />
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+    </ul>
+</nav>
+<table>
+    <div class="container">
+
+
+        <div class="container">
+            <div class="row">
+                @foreach (var c in Model)
+                {
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="6371155.png" alt="">
+                            <div class="card-body">
+                                <h5> الطلب  : @c.id</h5>
+                                <h5>اسم المشتري  : @c.userID </h5>
+                                <h5>رقم المشتري  : @user.PhoneNumber </h5>
+
+                                @switch (c.id)
+                                {
+                                    case 1:
+                                        <h5>خريجين بدون خبرة</h5>
+                                        break;
+                                    case 2:
+                                        <h5>خبرات مبتدئة من 1-5 سنوات</h5>
+                                        break;
+                                    case 3:
+                                        <h5>خبرات متوسطة من 6-10 سنوات</h5>
+                                        break;
+                                    case 4:
+                                        <h5>خبرات متوسطة من 11-15سنوات</h5>
+                                        break;
+                                    case 5:
+                                        <h5>الكفاءات (خبرات فوق 15 سنة</h5>
+                                        break;
+                                    default:
+                                        Console.WriteLine("Default case");
+                                        break;
+
+                                }
+                                @if (c.mid)
+                                {
+                                    <h5>كتابة سيرة ذاتية لخبرات متوسطة</h5>}
+                                @if (c.know)
+                                {
+                                    <h5>كتابة رسالة تعريفية</h5>}
+                                @if (c.arabic)
+                                {
+                                    <h5>إضافة نسخة باللغة العربية</h5>}
+                                @if (c.linkedin)
+                                {
+                                    <h5>محتوى بروفايل inked in احترافي</h5>}
+                                @if (c.fast)
+                                {
+                                    <h5>خدمة التسليم السريع خلال 3 أبام</h5>}
+
+
+                                <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
+                                <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
+                                <center>       <a href="" class="btn btn-danger">انهاء الطلب </a></center>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+
+    </div>
+</table>
+
+
+<nav aria-label="Page navigation example">
+         
+</nav>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><vc:pager paging-list="@Model" /><li>
+    </ul>
+</nav>

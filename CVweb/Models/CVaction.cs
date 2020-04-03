@@ -20,6 +20,11 @@ namespace CVweb.Models
             this.c = c;
         }
 
+        public IOrderedQueryable<CVz> getadmin()
+        {
+            return context.CVzs.Where(s => s.inwork == false).OrderBy(s=> s.id);
+
+        }
         public IEnumerable<CVz> getall()
         {
             return context.CVzs;

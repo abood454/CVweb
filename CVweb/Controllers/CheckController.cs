@@ -64,7 +64,9 @@ namespace CVweb.Controllers
                 photopath = uniph,
                 cvpath = unicv,
                 mid = model.mid,
-                paying=false
+                paying=false,
+                type=model.type,
+                inwork=false
 
             };
             _cvaction.add(newcv);

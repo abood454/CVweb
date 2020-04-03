@@ -20,5 +20,7 @@ namespace CVweb.Models
         public int cato { get; set; }
         public string userID { get; set; }
         public bool paying { get; set; }
+        public bool inwork { get; set; }
+        public int type { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReflectionIT.Mvc.Paging;
 
 namespace CVweb
 {
@@ -37,6 +38,7 @@ namespace CVweb
             )
                 .AddEntityFrameworkStores<DBapp>();
             services.AddMvc();
+            services.AddPaging();
             services.AddAuthentication().AddGoogle(op =>
             {
                 op.ClientId = "1023992901916-snn3k2mvd21odetlcne7iu648ksts0mo.apps.googleusercontent.com";
