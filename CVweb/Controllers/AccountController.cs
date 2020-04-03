@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using CVweb.Models;
 using CVweb.ViewModel;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ReflectionIT.Mvc.Paging;
@@ -13,18 +16,45 @@ namespace CVweb.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+
         private readonly CVaction _cvaction;
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
         public AccountController(CVaction cVaction, UserManager<IdentityUser> userManager
-                                                             ,SignInManager<IdentityUser> signInManager)
+                                                             ,SignInManager<IdentityUser> signInManager
+                                                                                  , IHostingEnvironment hostingEnvironment)
         {
 
+            _hostingEnvironment = hostingEnvironment;
             _cvaction = cVaction;
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+
+        public IActionResult upload(int id,IFormFile cv)
+        {
+            string unicv = null;
+            var model = _cvaction.get(id);
+
+            if (cv != null)
+            {
+                string upload = Path.Combine(_hostingEnvironment.WebRootPath, "pdf");
+                unicv = Guid.NewGuid().ToString() + "_" + cv.FileName;
+                string pathphoto = Path.Combine(upload, unicv);
+                cv.CopyTo(new FileStream(pathphoto, FileMode.Create)); 
+                model.allwork = unicv;
+                model.inwork = true;
+                _cvaction.update(model);
+
+            }
+           
+            return RedirectToAction("index", "Account");
+
+        }
+
+
         public async Task<IActionResult> index(int page = 1)
         {
             if (!signInManager.IsSignedIn(User))

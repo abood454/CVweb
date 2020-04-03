@@ -19,6 +19,8 @@ namespace CVweb.Migrations
                 table: "CVzs",
                 nullable: false,
                 defaultValue: 0);
+
+           
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -32,6 +34,7 @@ namespace CVweb.Migrations
             migrationBuilder.DropColumn(
                 name: "type",
                 table: "CVzs");
+            
         }
     }
 }

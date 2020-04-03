@@ -23,9 +23,9 @@ namespace CVweb.Controllers
 
         }
         [HttpPost]
-        public IActionResult Checkout(string id)
+        public IActionResult Checkout(string id,string bu)
         {
-            ViewBag.sal = id;
+            ViewBag.sal = bu;
             return View();
         }
         public IActionResult pay(cc model)

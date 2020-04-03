@@ -2,6 +2,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 @model ReflectionIT.Mvc.Paging.PagingList<CVweb.Models.CVz>
+
 @using ReflectionIT.Mvc.Paging
 @addTagHelper *, ReflectionIT.Mvc.Paging
 @{
@@ -38,7 +39,7 @@
                                 <h5>اسم المشتري  : @c.userID </h5>
                                 <h5>رقم المشتري  : @user.PhoneNumber </h5>
 
-                                @switch (c.id)
+                                @switch (c.type)
                                 {
                                     case 1:
                                         <h5>خريجين بدون خبرة</h5>
@@ -79,8 +80,14 @@
 
                                 <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
                                 <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
-                                <center>       <a href="" class="btn btn-danger">انهاء الطلب </a></center>
-
+                                <form enctype="multipart/form-data" action="Account/upload?@c.id" method="post">
+                                    <input type="number"  value="@c.id" hidden name="id"/>
+                                    <div class="custom-file">
+                                        <input class="form-control custom-file-input"  type="file" name="cv" >
+                                        <label class="custom-file-label">Choose File...</label>
+                                    </div>
+                                    <center><button type="submit" class="btn btn-danger">انهاء الطلب </button></center>
+                                </form>
 
 
 
@@ -99,10 +106,11 @@
 
 
 <nav aria-label="Page navigation example">
-         
+
 </nav>
 <nav aria-label="Page navigation example">
     <ul class="pagination">
-        <li class="page-item"><vc:pager paging-list="@Model" /><li>
+        <li class="page-item"><vc:pager paging-list="@Model" />
+        <li>
     </ul>
 </nav>

@@ -22,5 +22,8 @@ namespace CVweb.Models
         public bool paying { get; set; }
         public bool inwork { get; set; }
         public int type { get; set; }
+
+        public string allwork { get; set; }
+
     }
 }

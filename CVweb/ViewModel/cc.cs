@@ -27,5 +27,6 @@ namespace CVweb.ViewModel
         public bool inwork { get; set; }
         public int type { get; set; }
 
+
     }
 }
