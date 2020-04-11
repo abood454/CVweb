@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CVweb.Models;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using ReflectionIT.Mvc.Paging;
 
 namespace CVweb
@@ -37,6 +39,11 @@ namespace CVweb
             
             )
                 .AddEntityFrameworkStores<DBapp>();
+
+            services.AddSingleton<IFileProvider>(
+            new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
+
             services.AddMvc();
             services.AddPaging();
             services.AddAuthentication().AddGoogle(op =>

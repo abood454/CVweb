@@ -10,7 +10,7 @@
 
 
 <div class="container">
-    <form enctype="multipart/form-data" method="get" asp-controller="Check" asp-action="pay">
+    <form enctype="multipart/form-data" method="post" asp-controller="Check" asp-action="pay">
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <h3> كتابة سيرة ذاتية لخبرات متوسطة 6-10 سنوات</h3>
@@ -20,12 +20,13 @@
                     <label asp-for="cv" class="col-sm-2 col-form-label">CV</label>
                     <div class="col-sm-10">
                         <div class="custom-file">
-                            <input asp-for="cv" class="form-control custom-file-input" onchange="fun()" id="dd">
+                            <input asp-for="cv" type="file" class="form-control custom-file-input" onchange="fun()" id="dd">
                             <label class="custom-file-label">Choose File...</label>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-12 mb-4">
                 <div class="form-group row">
                     <label asp-for="photo" class="col-sm-2 col-form-label"></label>
@@ -42,7 +43,7 @@
             </div>
             <div class="col-lg-12 mb-4">
                 <label> كتابة سيرة ذاتية لخبرات متوسطة <input type="checkbox" name="cc" asp-for="mid" id="myCheck" class="che" onclick="fun2()">  </label><span class="price">300 ريال    </span>
-                <input type="text" value="300" hidden class="To"/>
+                <input type="text" value="300" hidden class="To" />
             </div>
             <div class="col-lg-12 mb-4">
                 <label>كتابة رسالة تعريفية  <input type="checkbox" asp-for="know" class="che" onclick="fun2()">  </label><span class="price">150  ريال  </span>
@@ -65,7 +66,7 @@
 
             </div>
             <div class="col-lg-12 mb-4">
-                <input type="text" value="@ViewBag.sal" asp-for="type" hidden id="hid"/>
+                <input type="text" value="@ViewBag.sal" asp-for="type" hidden id="hid" />
                 <span class="ff"> المجموع </span> <span class="price" id="kk">@ViewBag.sal</span><span> ريال </span>
 
             </div>
@@ -75,7 +76,7 @@
 
 
         </div>
-                <button type="submit" class="btn btn-success">شراء</button>
+        <button type="submit" class="btn btn-success">شراء</button>
     </form>
 
 </div>
@@ -90,3 +91,9 @@
         });
     });
 </script>
+<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+
+<!-- Load the required Braintree components. -->
+<script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
+

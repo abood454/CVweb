@@ -78,12 +78,12 @@
                                     <h5>خدمة التسليم السريع خلال 3 أبام</h5>}
 
 
-                                <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
-                                <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
+                                <form> <center>       <button asp-action="Download" asp-controller="Account" value="@c.photopath" name="filename" class="btn btn-secondary">تحميل </button></center></form>
+                                <form> <center>       <button asp-action="Downloadpdf" asp-controller="Account" value="@c.cvpath" name="filename" class="btn btn-secondary">تحميل </button></center></form>
                                 <form enctype="multipart/form-data" action="Account/upload?@c.id" method="post">
-                                    <input type="number"  value="@c.id" hidden name="id"/>
+                                    <input type="number" value="@c.id" hidden name="id" />
                                     <div class="custom-file">
-                                        <input class="form-control custom-file-input"  type="file" name="cv" >
+                                        <input class="form-control custom-file-input" type="file" name="cv">
                                         <label class="custom-file-label">Choose File...</label>
                                     </div>
                                     <center><button type="submit" class="btn btn-danger">انهاء الطلب </button></center>

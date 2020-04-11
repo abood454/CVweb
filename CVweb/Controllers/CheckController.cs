@@ -1,6 +1,7 @@
 ﻿using CVweb.Models;
 using CVweb.ViewModel;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,6 @@ namespace CVweb.Controllers
                 uniph = Guid.NewGuid().ToString() + "_" + model.photo.FileName;
                 string pathphoto = Path.Combine(upload, uniph);
                 model.photo.CopyTo(new FileStream(pathphoto, FileMode.Create));
-
             }
             if (model.cv != null)
             {
@@ -48,16 +48,13 @@ namespace CVweb.Controllers
                 string pathphoto = Path.Combine(upload, unicv);
                 model.cv.CopyTo(new FileStream(pathphoto, FileMode.Create));
 
-            }bool b=false;
-            if (model.linkedin == false)
-            {
-                b=true;
             }
+
             CVz newcv= new CVz {
                 arabic = model.arabic,
                 cato = model.cato,
                 know = model.know,
-                linkedin = b,
+                linkedin = model.linkedin,
                 notes = model.notes,
                 fast = model.fast,
                 userID = User.Identity.Name,
