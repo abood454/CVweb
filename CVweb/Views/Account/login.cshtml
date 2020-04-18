@@ -14,11 +14,11 @@
         <h1>دخول </h1>
         <div class="textbox">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input  asp-for="email" placeholder="email">
+            <input asp-for="email" placeholder="email">
         </div>
         <div class="textbox">
             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-            <input  asp-for="password" placeholder="password">
+            <input asp-for="password" placeholder="password">
         </div>
         <div>
             <label><input type="checkbox" asp-for="rem" />remeber me</label>
@@ -27,7 +27,9 @@
 
         </div>
         <input type="submit" name="" class="btno" value=" تسجيل الدخول">
-
+        <div>
+            <a asp-action="ForgotPassword">Forgot Password?</a>
+        </div>
 
     </div>
 </form>

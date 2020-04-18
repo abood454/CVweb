@@ -1,0 +1,27 @@
+﻿@model CVweb.ViewModel.payy
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "checkout";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AVz45kKTZqHbWZfDsb4FQvQ1hk9-4MuwWgyD7C5gn6RTJoOXLJFxGElvvlBjPI1fc__l4toYucGpnrO5">
+</script>
+<h1>fdsfsfgdsgfs</h1>
+<div id="paypal-button-container">
+
+</div>
+<h1>@ViewBag.idcv</h1>
+<script>
+    paypal.Buttons({
+        createOrder: function () {
+            return Promise.resolve("@ViewBag.idcv");
+
+        },
+        onApprove: function (data, actions) {
+            console.log("dddd");
+            location="/Check/done/@ViewBag.idcv";
+        }
+    }).render('#paypal-button-container');
+</script>

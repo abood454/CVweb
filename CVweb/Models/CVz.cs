@@ -24,6 +24,8 @@ namespace CVweb.Models
         public int type { get; set; }
 
         public string allwork { get; set; }
+        public string payid { get; set; }
+
 
     }
 }

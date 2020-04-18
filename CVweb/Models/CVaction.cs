@@ -25,6 +25,10 @@ namespace CVweb.Models
             return context.CVzs.Where(s => s.inwork == false).OrderBy(s=> s.id);
 
         }
+        public CVz getpay(string z)
+        {
+            return context.CVzs.Where(s => s.payid == z).FirstOrDefault();
+        }
         public IEnumerable<CVz> getall()
         {
             return context.CVzs;
@@ -67,6 +71,9 @@ namespace CVweb.Models
             return newuser;
         }
 
-
+        internal CVz get(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

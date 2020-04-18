@@ -32,13 +32,13 @@ namespace CVweb
             op.UseSqlServer(Configuration.GetConnectionString("con")));
             services.AddIdentity<IdentityUser, IdentityRole>(op =>
             {
-                op.SignIn.RequireConfirmedEmail = true;
                 op.Password.RequireNonAlphanumeric = false;
                 op.Password.RequireUppercase = false;
             }
             
             )
-                .AddEntityFrameworkStores<DBapp>();
+                .AddEntityFrameworkStores<DBapp>()
+                .AddDefaultTokenProviders();
 
             services.AddSingleton<IFileProvider>(
             new PhysicalFileProvider(
