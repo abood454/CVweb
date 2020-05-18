@@ -29,7 +29,7 @@ namespace CVweb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<DBapp>(op =>
-            op.UseSqlServer(Configuration.GetConnectionString("con")));
+            op.UseSqlite(Configuration.GetConnectionString("con")));
             services.AddIdentity<IdentityUser, IdentityRole>(op =>
             {
                 op.Password.RequireNonAlphanumeric = false;

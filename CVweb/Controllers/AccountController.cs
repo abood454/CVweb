@@ -354,7 +354,7 @@ namespace CVweb.Controllers
                     MimeMessage message = new MimeMessage();
 
                     MailboxAddress from = new MailboxAddress("first step",
-                    User.Identity.Name);
+                    "abood.almansour@gmil.com");
                     message.From.Add(from);
 
                     MailboxAddress to = new MailboxAddress("User",
