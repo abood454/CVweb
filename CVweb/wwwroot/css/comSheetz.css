@@ -35,31 +35,4 @@ h1 {
     color: white;
 }
 
-#mainNavbar {
-    font-size: 1rem;
-    font-weight: 100;
-    background: black;
-}
 
-.navbar-nav {
-    margin-right: 70px;
-}
-
-.navbar-brand {
-    margin-right: 150px;
-}
-
-
-#mainNavbar .nav-link {
-    color: white;
-    margin-left: 20px;
-}
-
-    #mainNavbar .nav-link:hover {
-        color: orange;
-    }
-
-#mainNavbar .navbar-brand {
-    color: #040B52;
-    font-size: 1.5rem;
-}

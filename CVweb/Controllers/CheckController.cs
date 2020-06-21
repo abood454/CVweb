@@ -2,6 +2,7 @@
 using CVweb.ViewModel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PayPalCheckoutSdk.Orders;
@@ -17,12 +18,17 @@ namespace CVweb.Controllers
     {
         private readonly CVaction _cvaction;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<IdentityUser> signInManager;
 
         public CheckController(CVaction cVaction,
-                                         IHostingEnvironment hostingEnvironment)
+                                         IHostingEnvironment hostingEnvironment, UserManager<IdentityUser> userManager
+                                                             , SignInManager<IdentityUser> signInManager)
         {
             _cvaction = cVaction;
             _hostingEnvironment = hostingEnvironment;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
 
         }
 
@@ -31,8 +37,14 @@ namespace CVweb.Controllers
         [HttpPost]
         public IActionResult Checkout(string id,string bu)
         {
-            ViewBag.sal = bu;
-            return View();
+            if (signInManager.IsSignedIn(User))
+            {
+
+                ViewBag.sal = bu;
+                return View();
+            }
+            return RedirectToAction("login", "Account");
+
         }
         public IActionResult pay(cc model)
         {

@@ -6,12 +6,19 @@
     ViewBag.Title = "checkout";
 }
 
-<link rel="stylesheet" type="text/css" href="~/css/checkoutSheet.css">
+<link rel="stylesheet" type="text/css" href="~/css/checkoutSheetz.css">
 
 
+<centre>
 <div class="container">
     <form enctype="multipart/form-data" method="post" asp-controller="Check" asp-action="pay">
         <div class="row">
+
+            <div class="col-lg-12 mb-4">
+
+                <h4 id="kkb">يرجى إرفاق السيرة الذاتية وصورة شخصية</h4>
+
+            </div>
             <div class="col-lg-12 mb-4">
                 <h3> كتابة سيرة ذاتية لخبرات متوسطة 6-10 سنوات</h3>
             </div>
@@ -20,27 +27,26 @@
                     <label asp-for="cv" class="col-sm-2 col-form-label">CV</label>
                     <div class="col-sm-10">
                         <div class="custom-file">
-                            <input asp-for="cv" type="file" class="form-control custom-file-input" onchange="fun()" id="dd">
+                            <input asp-for="cv" type="file" class="form-control custom-file-input" onchange="fun()" id="dd" required>
                             <label class="custom-file-label">Choose File...</label>
                         </div>
                     </div>
                 </div>
             </div>
 
+
             <div class="col-lg-12 mb-4">
                 <div class="form-group row">
                     <label asp-for="photo" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
                         <div class="custom-file">
-                            <input asp-for="photo" class="form-control custom-file-input">
+                            <input asp-for="photo" class="form-control custom-file-input" required>
                             <label class="custom-file-label">Choose File...</label>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 mb-4">
-                <label> ملاحظات<textarea asp-for="notes" maxlength="1000"></textarea>  </label>
-            </div>
+
             <div class="col-lg-12 mb-4">
                 <label> كتابة سيرة ذاتية لخبرات متوسطة <input type="checkbox" name="cc" asp-for="mid" id="myCheck" class="che" onclick="fun2()">  </label><span class="price">300 ريال    </span>
                 <input type="text" value="300" hidden class="To" />
@@ -60,6 +66,7 @@
                 <input type="text" value="250" hidden class="To" />
 
             </div>
+
             <div class="col-lg-12 mb-4">
                 <label> خدمة التسليم السريع خلال 3 أبام <input type="checkbox" asp-for="fast" value="150" class="che" onclick="fun2()">  </label><span class="price">150 ريال   </span>
                 <input type="text" value="150" hidden class="To" />
@@ -80,6 +87,7 @@
     </form>
 
 </div>
+</centre>
 <script type="text/javascript" src="~/js/JavaScript1222.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 

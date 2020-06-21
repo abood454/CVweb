@@ -357,8 +357,8 @@ namespace CVweb.Controllers
                     "abood.almansour@gmil.com");
                     message.From.Add(from);
 
-                    MailboxAddress to = new MailboxAddress("User",
-                    "abood.almansour@outlook.com");
+                MailboxAddress to = new MailboxAddress("User",
+                    model.Email);
                     message.To.Add(to);
 
                     message.Subject = "ForgotPassword";

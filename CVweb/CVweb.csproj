@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\img\3.png" />
     <None Include="wwwroot\img\header.jpeg" />
   </ItemGroup>
 

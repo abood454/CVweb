@@ -6,7 +6,12 @@
     ViewBag.Title = "sign up";
 }
 <!doctype html>
-
+<style>
+    .ll {
+        width: 225px;
+        margin-bottom: 17px;
+    }
+</style>
 
 <link rel="stylesheet" type="text/css" href="~/css/SignupSheet.css">
 
@@ -16,26 +21,26 @@
             <h1>انشاء حساب </h1>
             <form asp-controller="Account" asp-action="Register" method="post">
                 <div>
-                    <input type="text" asp-for="name" placeholder="اسم المستخدم" />
+                    <input type="text" asp-for="name" placeholder="اسم المستخدم" required />
                     <span asp-validation-for="name" class="text-danger"></span>
                 </div>
                 <div>
-                    <input type="email" asp-for="email" placeholder="البريد الالكتروني"  />
+                    <input type="email" asp-for="email" placeholder="البريد الالكتروني" required class="ll"  />
                     <span asp-validation-for="email" class="text-danger"></span>
 
                 </div>
                 <div>
-                    <input asp-for="password" type="password" placeholder="كلمة السر " />
+                    <input asp-for="password" type="password" placeholder="كلمة السر " required />
                     <span asp-validation-for="password" class="text-danger"></span>
 
                 </div>
                 <div>
-                    <input asp-for="copassword" type="password" placeholder="إعادة كلمة السر " />
+                    <input asp-for="copassword" type="password" placeholder="إعادة كلمة السر " required />
                     <span asp-validation-for="copassword" class="text-danger"></span>
 
                 </div>
                 <div>
-                    <input asp-for="phone" placeholder="رقم الهاتف " />
+                    <input asp-for="phone" placeholder="رقم الهاتف " required />
                     <span asp-validation-for="phone" class="text-danger"></span>
 
                 </div>
@@ -47,8 +52,7 @@
         </div>
 
         <div class="right">
-            <button class="social-signin facebook">Log in with facebook</button>
-            <button class="social-signin twitter">Log in with Twitter</button>
+            
             <span class="loginwith">Sign in with<br />social network</span>
 
             <form method="post" asp-action="EXlogin" asp-route-returnUrl="@Model.ReturnUrl">
