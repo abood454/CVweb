@@ -18,21 +18,23 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="~/css/NavSheet.css">
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+
 
 </head>
 <body>
     <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top">
-        <a href="#" class="navbar-brand"><img src="https://www.awalstep.com/wp-content/uploads/2018/10/logo-white.png" class="awalstep"></a>
+        <a asp-controller="home" asp-action="index" class="navbar-brand"><img src="https://www.awalstep.com/wp-content/uploads/2018/10/logo-white.png" class="awalstep"></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navLinks">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a  asp-action="index" asp-controller="Home" class="nav-link">الصفحة الرئيسية </a>
+                    <a asp-action="index" asp-controller="Home" class="nav-link">الصفحة الرئيسية </a>
                 </li>
                 <li class="nav-item">
-                    <a  class="nav-link" asp-action="aboutus" asp-controller="Home">من نحن </a>
+                    <a class="nav-link" asp-action="aboutus" asp-controller="Home">من نحن </a>
                 </li>
                 <li class="nav-item">
                     <a href="~/Home/catotogory" class="nav-link">الفئات </a>
@@ -72,12 +74,32 @@
     {
         @RenderSection("Scripts", required: true)
     }
+    <footer id="footer">
+        <div class="copyright">
+            <ul class="icons">
+                <li><a href="#" class="icon fa-whatsapp"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+            <p>&copy;  All rights reserved</p>
+        </div>
+    </footer>
+
 </body>
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 </html>
 
