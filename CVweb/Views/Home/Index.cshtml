@@ -1,6 +1,52 @@
-﻿@{
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
     Layout = "~/Views/shared/_Layout.cshtml";
-    ViewBag.Title = "index";
+    ViewBag.Title = "home";
 }
 
-<h1>the oooooo</h1>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+
+
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <header>
+            <h1>أول ستب</h1>
+            <p>
+                الموقع الاول في الشرق الاوسط لتطوير السيرة الذاتية
+            </p>
+        </header>
+        <a  asp-action="aboutus" asp-controller="Home" class="button big scrolly">الفئات</a>
+        <a  asp-action="catotogory" asp-controller="Home" class="button big scrolly">تعرف المزيد</a>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="copyright">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-whatsapp"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        </ul>
+        <p>&copy;  All rights reserved</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="~/assets/js/jquery.scrolly.min.js"></script>
+<script src="~/assets/js/jquery.scrollex.min.js"></script>
+<script src="~/assets/js/skel.min.js"></script>
+<script src="~/assets/js/util.js"></script>
+<script src="~/assets/js/main.js"></script>
+
+
