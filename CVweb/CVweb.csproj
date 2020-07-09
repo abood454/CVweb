@@ -35,11 +35,10 @@
     <None Include="wwwroot\assets\js\main.js" />
     <None Include="wwwroot\assets\js\skel.min.js" />
     <None Include="wwwroot\assets\js\util.js" />
-    <None Include="wwwroot\img\3.png" />
-    <None Include="wwwroot\img\header.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\pdf\" />
     <Folder Include="wwwroot\video\" />
   </ItemGroup>
