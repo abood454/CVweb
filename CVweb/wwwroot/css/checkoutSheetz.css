@@ -1,14 +1,10 @@
-﻿@charset "UTF-8";
-@import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Scope+One|Trocchi");
-
-body {
+﻿body {
     
     color: white;
     background-image: url('/img/header.jpeg');
 }
 
-#jj {
+.container {
     margin-top: 150px;
     margin-left: 1000px;
 }

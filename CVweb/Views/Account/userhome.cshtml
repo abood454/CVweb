@@ -150,16 +150,9 @@
                                                             <h5>اسم المشتري  : @User.Identity.Name </h5>
 
 
-                                                            @if (c.inwork == true)
-                                                            {
-                                                        <center>
-                                                            <form> <center>       <button asp-action="Downloadpdf" asp-controller="Account" value="@c.allwork" name="filename" class="btn btn-secondary">تحميل </button></center></form>
-                                                        </center>
-                                                            }
-                                                            else 
-                                                            { 
-                                                            <center>       <a href="" class="btn btn-secondary"> انتظر حتى تنتهي</a></center>
-                                                            }
+
+                                                            <center>       <a href="" class="btn btn-secondary">تحميل </a></center>
+
                                                         </div>
                                                     </div>
                                                 </div>

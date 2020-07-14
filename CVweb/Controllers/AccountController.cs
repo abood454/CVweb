@@ -41,7 +41,6 @@ namespace CVweb.Controllers
             var ext = Path.GetExtension(path).ToLowerInvariant();
             return types[ext];
         }
-        
 
         private Dictionary<string, string> GetMimeTypes()
         {
@@ -74,27 +73,6 @@ namespace CVweb.Controllers
                 model.allwork = unicv;
                 model.inwork = true;
                 _cvaction.update(model);
-                /////////////////////////////////////////////////////////////////////////
-                var path = Path.Combine(
-                           _hostingEnvironment.WebRootPath,
-                            "pdf", model.cvpath);
-                FileInfo fi = new FileInfo(path);
-                if (fi != null)
-                {
-                    System.IO.File.Delete(path);
-                    fi.Delete();
-                    
-                }
-                ///////////////////////////////////////////////////////////////////////
-                 path = Path.Combine(
-                          _hostingEnvironment.WebRootPath,
-                           "img", model.photopath);
-                fi = new FileInfo(path);
-                if (fi != null)
-                {
-                    System.IO.File.Delete(path);
-                    fi.Delete();
-                }
 
             }
            
