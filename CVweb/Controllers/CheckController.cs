@@ -104,13 +104,13 @@ namespace CVweb.Controllers
                     case 2:
                     p += 100;
                     break;
-                                    case 3:
+                    case 3:
                     p += 100;
                     break;
-                                    case 4:
+                    case 4:
                     p += 100;
                     break;
-                                    case 5:
+                    case 5:
                     p += 100;
                     break;
                 default:
@@ -119,7 +119,7 @@ namespace CVweb.Controllers
 
             }
             if(cv.mid)
-                                {
+             {
                 p += 100;
             }
             if(cv.know)
@@ -172,7 +172,7 @@ namespace CVweb.Controllers
                         {
                             new Item
                             {
-                                Name = "T-shirt",
+                                Name = "cv",
                                 Description = "Green XL",
                                 Sku = "sku01",
                                 UnitAmount = new Money { CurrencyCode = "USD", Value = p.ToString() },
@@ -183,7 +183,7 @@ namespace CVweb.Controllers
                         },
                         ShippingDetail = new ShippingDetail
                         {
-                            Name = new Name{ FullName = "John Doe" },
+                            Name = new Name{ FullName = "online" },
                             AddressPortable = new AddressPortable
                             {
                                 AddressLine1 = "123 Townsend St",
